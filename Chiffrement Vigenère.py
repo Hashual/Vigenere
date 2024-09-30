@@ -17,5 +17,20 @@ def normalizeTexte(texte: str) -> str:
 
 
 
+def chiffre_vigenere( phrase :str , cle : str) -> str:
+    resultat : str = ""
+
+    phrase = normalizeTexte(phrase)
+
+    cle = normalizeTexte(cle)
+
+    longueurCLe = len(cle)
+    
+    for element in range(len(phrase)):
+        if phrase[element] in alphabet:
+            resultat += alphabet[(alphabet.index(phrase[element]) + alphabet.index(cle[element % longueurCLe])) % TAILLE_ALPHABET]
+        else:
+            resultat += phrase[element]
+    return resultat
 
 
