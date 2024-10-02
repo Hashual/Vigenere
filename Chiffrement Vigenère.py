@@ -4,11 +4,13 @@ import string
 alphabet = string.ascii_uppercase
 TAILLE_ALPHABET = 26
 
-def normalizeTexte(texte: str) -> str:
+def normaliseTexte(texte: str) -> str:
 
     texte = unicodedata.normalize('NFD', texte)
-    texte = ''.join(c for c in texte if unicodedata.category(c) != 'Mn')
-    texte = ''.join(c for c in texte if c in string.ascii_letters or c in string.digits)
+    for letter in texte:
+        if not letter.isalpha():
+            texte = texte.replace(letter, '')
+
     texte = texte.upper()
 
     return texte
@@ -16,9 +18,9 @@ def normalizeTexte(texte: str) -> str:
 def chiffre_vigenere( phrase :str , cle : str) -> str:
     resultat : str = ""
 
-    phrase = normalizeTexte(phrase)
+    phrase = normaliseTexte(phrase)
 
-    cle = normalizeTexte(cle)
+    cle = normaliseTexte(cle)
 
     longueurCLe = len(cle)
     
@@ -32,9 +34,9 @@ def chiffre_vigenere( phrase :str , cle : str) -> str:
 def dechiffre_vigenere( phrase :str, cle : str) -> str :
     resultat : str = ""
 
-    phrase = normalizeTexte(phrase)
+    phrase = normaliseTexte(phrase)
 
-    cle = normalizeTexte(cle)
+    cle = normaliseTexte(cle)
 
     longueurCLe = len(cle)
     
@@ -51,7 +53,7 @@ def kasiskiMethod(chemin_fichier : str) -> None:
         with open(chemin_fichier, 'r', encoding='utf-8') as fichier:
             contenu = fichier.read()
             fichier.close()
-            contenu = normalizeTexte(contenu)
+            contenu = normaliseTexte(contenu)
 
             repetitions = trouver_repetitions(contenu)
             if repetitions == {}:
