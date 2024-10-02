@@ -2,49 +2,37 @@ import unicodedata
 import string
 
 alphabet = string.ascii_uppercase
-TAILLE_ALPHABET = 26
-
+TAILLE_ALPHABET = len(alphabet)
 def normaliseTexte(texte: str) -> str:
-
-    texte = unicodedata.normalize('NFD', texte)
-    for letter in texte:
-        if not letter.isalpha():
-            texte = texte.replace(letter, '')
-
     texte = texte.upper()
+    texte = unicodedata.normalize('NFD', texte)
+    for lettre in texte:
+        if lettre not in alphabet:
+            texte = texte.replace(lettre, '')
+
 
     return texte
 
-def chiffre_vigenere( phrase :str , cle : str) -> str:
+def chiffre_vigenere( texte :str , cle : str) -> str:
     resultat : str = ""
-
-    phrase = normaliseTexte(phrase)
-
+    texte = normaliseTexte(texte)
     cle = normaliseTexte(cle)
-
     longueurCLe = len(cle)
     
-    for element in range(len(phrase)):
-        if phrase[element] in alphabet:
-            resultat += alphabet[(alphabet.index(phrase[element]) + alphabet.index(cle[element % longueurCLe])) % TAILLE_ALPHABET]
-        else:
-            resultat += phrase[element]
+    for element in range(len(texte)):
+        resultat += alphabet[(alphabet.index(texte[element]) + alphabet.index(cle[element % longueurCLe])) % TAILLE_ALPHABET]
+
     return resultat
 
-def dechiffre_vigenere( phrase :str, cle : str) -> str :
+def dechiffre_vigenere( texte :str, cle : str) -> str :
     resultat : str = ""
-
-    phrase = normaliseTexte(phrase)
-
+    texte = normaliseTexte(texte)
     cle = normaliseTexte(cle)
-
     longueurCLe = len(cle)
     
-    for element in range(len(phrase)):
-        if phrase[element] in alphabet:
-            resultat += alphabet[(alphabet.index(phrase[element]) - alphabet.index(cle[element % longueurCLe])) % TAILLE_ALPHABET]
-        else:
-            resultat += phrase[element]
+    for element in range(len(texte)):
+        resultat += alphabet[(alphabet.index(texte[element]) - alphabet.index(cle[element % longueurCLe])) % TAILLE_ALPHABET]
+
     return resultat
 
 
@@ -92,18 +80,18 @@ def trouver_repetitions(texte, longueur_min=3) -> dict:
 print("MENU :")
 print("1. Chiffrer un message")
 print("2. Déchiffrer un message")
-print("3. Déchiffrer un fichier")
+print("3. Trouver la taille d'une clé dans un fichier")
 print("4. Quitter")
 choix = input()
 if choix == "1":
-    phrase = input("Entrez le message à chiffrer : ")
+    texte = input("Entrez le message à chiffrer : ")
     cle = input("Entrez la clé de chiffrement : ")
-    print("Votre message chiffré : " + chiffre_vigenere(phrase, cle))
+    print("Votre message chiffré : " + chiffre_vigenere(texte, cle))
 
 elif choix == "2":
-    phrase = input("Entrez le message à déchiffrer : ")
+    texte = input("Entrez le message à déchiffrer : ")
     cle = input("Entrez la clé de déchiffrement : ")
-    print("Votre message déchiffré : " + dechiffre_vigenere(phrase, cle))
+    print("Votre message déchiffré : " + dechiffre_vigenere(texte, cle))
 
 elif choix == "3":
     chemin_fichier = input("Entrez le chemin du fichier à lire : \n")
