@@ -119,7 +119,7 @@ elif choix == "2":
 
 elif choix == "3":
     chemin_fichier = input("Entrez le chemin du fichier à lire : \n")
-    kasiskiMethod(chemin_fichier)
+    methodeKasiski(chemin_fichier)
 
 elif choix == "4":
     print("Au revoir !")
