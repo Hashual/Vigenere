@@ -80,7 +80,7 @@ def compteDiviseurOccurence(listeRepet: list[int]) -> dict[int, int]:
 
     return contacts
 
-def kasiskiMethod(chemin_fichier : str) -> None:
+def methodeKasiski(chemin_fichier : str) -> None:
     try:
         with open(chemin_fichier, 'r', encoding='utf-8') as fichier:
             contenu = fichier.read()
@@ -94,7 +94,7 @@ def kasiskiMethod(chemin_fichier : str) -> None:
                 listeContacts = changeDicoEnListe(repet)
                 contacts = compteDiviseurOccurence(listeContacts)
                 for diviseur, occurence in list(contacts.items())[:5]:
-                   print(f"Clé potentiel : {diviseur}, Occurence du diviseur : {occurence}")
+                   print(f"Clé potentielle : {diviseur}, Occurence du diviseur : {occurence}")
 
     except FileNotFoundError:
         print(f"Erreur : Le fichier '{chemin_fichier}' est introuvable.")
