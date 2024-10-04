@@ -13,8 +13,6 @@ def normaliseTexte(texte: str) -> str:
     for lettre in texte:
         if lettre not in alphabet:
             texte = texte.replace(lettre, '')
-
-
     return texte
 
 def chiffreVigenere( texte :str , cle : str) -> str:
@@ -94,7 +92,7 @@ def methodeKasiski(chemin_fichier : str) -> None:
                 candidats = compteDiviseurOccurence(listeCandidats)
                 candidats = trierOccurenceDiviseursDesc(candidats)
                 for diviseur, occurence in list(candidats.items())[:5]:
-                   print(f"Clé potentielle : {diviseur}, Occurence du diviseur : {occurence}")
+                   print(f"Clé potentielle : {diviseur}, Occurrence du diviseur : {occurence}")
     except FileNotFoundError:
         print(f"Erreur : Le fichier '{chemin_fichier}' est introuvable.")
     except Exception as e:
