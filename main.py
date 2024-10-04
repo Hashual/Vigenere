@@ -8,11 +8,13 @@ if __name__ == "__main__" :
     print("4. Quitter")
     choix = input()
     if choix == "1":
+        # Changer les input("") par un string pour les tests avec une clé et un texte précis
         texte = input("Entrez le message à chiffrer : ")
         cle = input("Entrez la clé de chiffrement : ")
         print("Votre message chiffré : " + chiffreVigenere(texte, cle))
 
     elif choix == "2":
+        # Changer les input("") par un string pour les tests avec une clé et un texte précis
         texte = input("Entrez le message à déchiffrer : ")
         cle = input("Entrez la clé de déchiffrement : ")
         print("Votre message déchiffré : " + dechiffreVigenere(texte, cle))
