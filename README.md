@@ -1,6 +1,6 @@
 Comme annoncé dans le rapport ce fichier contient 3 textes de tailles différentes et de buts différents.
 
-Voici le plus petit texte non crypté : 
+Voici le plus petit texte non crypté contenu dans le fichier UnFichierCrypte : 
 Voici un message chiffré qui ne contient aucun doublon !
 
 Et sa version cryptée à l'aide de la clé ' Cryptographie '
@@ -10,7 +10,7 @@ Si on applique la fonction de Kasiski sur ce plainText le programme nous renvoie
 La fonction renvoie ce résultat lorsque le dictionnaire 'repet' est vide.
 
 
-Voici le texte crypté issu du TD :
+Voici le texte crypté issu du TD contenu dans le fichier DeuxFichierCrypte :
 XNRDGQZUDN KOPIZTTMRT LKGXPNRLBA OEDFTRBXZA VRRPKQIMAG FRLBNYHCIY
 SBGZPLPSLA OZRLLDHAZT TSKUGGURHI UEFPGZCECA WBGOZSKHDB JACOKTDZMQ
 IWVANVKEHE JIQBNQRRPP WWMDPPYIFI RSDRZTKUYF WEDSHTBQHB LTLVYFTAUE
@@ -40,7 +40,8 @@ Le but de ce jeu d'essai est de déterminer la précision de la méthode de Kasi
 
 
 
-Voici maintenant le texte le plus long non crypté. Il va permettre de déterminer si la méthode renvoie le bon résultat mais aussi si le temps de traitementdu programme n'est pas trop élevé:
+Voici maintenant le texte le plus long non crypté contenu dans le fichier TroisFichierCrypte.
+Il va permettre de déterminer si la méthode renvoie le bon résultat mais aussi si le temps de traitementdu programme n'est pas trop élevé:
 
 Il était une fois, dans un petit village niché au cœur des montagnes, une jeune fille appelée Lina. Lina n'était pas comme les autres enfants de son âge. Tandis que ses camarades jouaient dans les champs et couraient après les papillons, Lina passait des heures à rêver et à observer les étoiles. Elle avait une curiosité insatiable pour tout ce qui se passait au-delà de l’horizon visible.
 Un jour, en explorant une partie isolée de la forêt qui bordait le village, Lina découvrit un vieux livre couvert de poussière, abandonné sous un grand chêne. La couverture du livre portait un titre mystérieux : "Le Voyage des Mondes Inconnus". Fascinée, elle s’empressa de rentrer chez elle pour commencer à le lire. À peine avait-elle ouvert la première page qu'une lueur étrange enveloppa la pièce, et en un instant, Lina se retrouva dans un autre monde.
